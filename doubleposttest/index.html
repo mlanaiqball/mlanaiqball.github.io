@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Luas Persegi</title>   <!-- judul halaman -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Hitung Luas Persegi</h1>   <!--judul utama-->
+    <img src="persegi.png" alt="Gambar Persegi"> <!--untuk gambar-->
+
+    <div><br>
+        <label for="sisi">masukkan panjang sisi (cm): </label>
+        <input type="number" id="sisi" min="0" step="any">   <!--input panjang sisi-->
+        <button onclick="hitungLuas()">Hitung</button>   <!--menghitung luasnya-->
+    </div>
+
+    <div class="result" id="hasil"></div>   <!--untuk menampilkan hasil-->
+    <div class="error" id="error"></div>   <!--menampilkan pesan errornya-->
+
+    <script>
+        function hitungLuas() {
+            const sisi = document.getElementById('sisi').value;
+            const hasilDiv = document.getElementById('hasil');
+            const errorDiv = document.getElementById('error');
+
+            // Reset hasil dan error
+            hasilDiv.innerHTML = '';
+            errorDiv.innerHTML = '';
+
+            // Validasi input
+            if (sisi === '' || sisi <= 0) {
+                errorDiv.innerHTML = 'Silakan masukkan angka positif untuk panjang sisi.';
+                return;
+            }
+
+            // Hitung luas
+            const luas = sisi * sisi;
+            hasilDiv.innerHTML = `Luas Persegi: ${luas} cm²`;
+        }
+    </script>
+
+</body>
+</html>
